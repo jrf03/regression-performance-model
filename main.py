@@ -7,6 +7,8 @@
     # Because of that, I got loads of errors and spent a very long time looking for solutions.
     # Hopefully the stuff I added to fix it isn't too far out of the scope of what we were intended to do.
         # If there was a simpler way of doing this successfully, please feel free to let me know. Thank you!
+# I don't know if we needed to do this, but I created a requirements.txt file that shows all the packages included
+# To run this, it should just be "python3 main.py" or "python main.py"
 
 # Import the required packages
 import pandas as pd
