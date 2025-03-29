@@ -37,14 +37,16 @@ print(student_performance.metadata)
 # Variable information
 print(student_performance.variables)
 
-# Extract the final grade (G3) as our target
+# NOTE: The next three sections weren't really in the instructions, but I kept getting a ton of errors and ended up here after a lot of debugging
+
+# Extract the final grade (G3) as target
 y = y['G3'] if 'G3' in y.columns else y.iloc[:, -1]
 
-# NOTE: This section wasn't really in the instructions, but I kept getting a ton of errors and ended up here after a lot of debugging
-# Identify categorical and numerical columns and create preprocessor
+# Identify categorical and numerical columns
 categorical_cols = X.select_dtypes(include=['object', 'category']).columns.tolist()
 numerical_cols = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
 
+# Create preprocessor
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', StandardScaler(), numerical_cols),
@@ -98,6 +100,6 @@ plt.ylabel('True labels')
 plt.xlabel('Predicted labels')
 plt.show()
 
-# Print the classification report based on the confusion matrix.
+# Print the classification report based on the confusion matrix
 print("\nClassification Report:")
 print(classification_report(y_test_label, y_pred_label))
